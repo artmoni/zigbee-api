@@ -1,10 +1,10 @@
 import db from '../../firebaseConfig';
 
-const saveMove = (mesure) => {
+const saveMove = (move) => {
     console.log("bla");
 }
 
 module.exports = (req, res) => {
-    let { mesure } = req.params
-    res.send(saveMove(mesure))
+    let { move } = req.params
+    res.send(saveMove(move))
  };
