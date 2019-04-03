@@ -1,17 +1,16 @@
 const firebase = require('firebase');
 const db = require('../../firebaseConfig');
+//console.log(db, 'ddbb');
 
 
-const saveMove = (move, id) => {
+const getData = () => {
     //console.log("bla");
     let myTable = db.database().ref('mesure');
-    myTable.push({ 'mouvement': move, 'sensorId': id  })
     myTable.on('value', function(snapshot) {
         console.log(snapshot.val())
     });
 }
 
 module.exports = (req, res) => {
-    let { move, id } = req.params
-    res.send(saveMove(move, id))
+    res.send(getData())
  };
