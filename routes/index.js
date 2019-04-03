@@ -1,7 +1,7 @@
 const routes = require('express').Router();
-//const change = require('./change');
+const move = require('./saveMove');
 
-//routes.use('/change', change);
+routes.use('/saveMove', move);
 
 routes.get('/',(req, res) =>{
     res.status(200).json({message : 'connected!'});

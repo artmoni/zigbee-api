@@ -1,9 +1,8 @@
 const move = require('express').Router();
+const saveMove = require('./saveMove');
 
 
-move.use('/',function(req, res, next){
-    console.log("mouvement le " + Date.now());
-});
+move.get('/:mesure', saveMove);
 
 
 
