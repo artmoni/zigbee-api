@@ -3,10 +3,9 @@ Utilisation:
 SaveMove:
 Fonction qui va enregistrer en bdd les mouvements detecté
 
-lemouv = timestamp
 idSensor = id du capteur
 
-appel => adresse:port/saveMove/lemouv/id/idSensor
+appel => adresse:port/saveMove/sensor/idSensor
 
 getData: 
 
