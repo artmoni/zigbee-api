@@ -1,4 +1,4 @@
-import  firebase  from "firebase"
+const firebase = require("firebase");
 
 var config = {
     apiKey: "AIzaSyDn6IbNe7uA9J-Pib6iOI389SeVhkXv6rE",
@@ -9,4 +9,4 @@ var config = {
     messagingSenderId: "1080511125053"
 };
 let app = firebase.initializeApp(config);
-export default db = app;
+const db = app;
