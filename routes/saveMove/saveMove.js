@@ -12,6 +12,7 @@ const saveMove = (id) => {
 }
 
 module.exports = (req, res) => {
-    let { id } = req.params
-    res.send(saveMove(id))
+	 console.log('sensor id =>', req.params.id);	
+         let { id } = req.params
+   	 res.send(saveMove(id))
  };
