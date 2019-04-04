@@ -9,6 +9,8 @@ const saveMove = (id) => {
     myTable.on('value', function(snapshot) {
         console.log(snapshot.val())
     });
+
+    return 'ajout ok';
 }
 
 module.exports = (req, res) => {
