@@ -4,7 +4,7 @@ const app = express();
 const morgan = require('morgan');
 app.use(morgan('dev'));
 var bodyParser = require("body-parser");
-const PORT = process.env.PORT || 8587;
+const PORT = process.env.PORT || 8002;
 const routes = require('./routes');
 var cors = require('cors')
 

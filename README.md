@@ -1,15 +1,14 @@
 Utilisation: 
 
-SaveMove:
-Fonction qui va enregistrer en bdd les mouvements detecté
+SaveMove Function who record in bdd the detected mouvement.
 
-idSensor = id du capteur
+idSensor = sensor id
+request =>  http://163.172.141.214:8002/saveMove/sensor/:idSensor
 
-appel => adresse:port/saveMove/sensor/idSensor
+-----------------------------------------------------------------
 
 getData: 
+Function which permits to check the mouvements in the bdd
+appel =>   http://163.172.141.214:8002/getData 
 
-Fonction qui permet de consulter les mouvements enregistrés en bdd
-
-appel => adresse:port/getData
-
+-----------------------------------------------------------------
