@@ -7,10 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
 import axios from 'axios';
- 
+import moment from 'moment';
 
+
+require('moment/locale/fr');
 
 // async function getData() {
 //     try {
@@ -30,34 +32,42 @@ export default class App extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     state = {
         data: []
     }
 
 
     componentDidMount() {
-        axios.get("http://163.172.141.214:8002/getdata")
-            .then(res => {
-                let myData=[];
-                // handle success
-                Object.values(res.data).forEach(function(val) {
-                    myData.push(val)
+
+        setInterval(function (param) {
+            //console.log('callz');
+            axios.get("http://163.172.141.214:8002/getdata")
+                .then(res => {
+                    let myData=[];
+                    // handle success
+                    //console.log('call')
+                    Object.values(res.data).forEach(function(val) {
+                        myData.push(val)
+                    })
+                    param.setState({ 'data': myData});
                 })
-                this.setState({ 'data': myData});
-            })
-            .catch(err => {
-                // handle error
-                console.log(err);
-        });
+                .catch(err => {
+                    // handle error
+                    console.log(err);
+            });
+        },1000,this)
+
 
     }
 
   render() {
     //console.log(this.state.data, ' render');
     const moveList = this.state.data.map((k,i) => {
+        let day = moment(this.state.data[i].mouvement).format("DD/MM/YYYY");
+        let hour = moment(this.state.data[i].mouvement).format("LTS");
         return (
-          <View><Text style={styles.result}>le capteur {this.state.data[i].sensorId} a detecté un mouvement le {this.state.data[i].mouvement}</Text></View>
+          <View><Text key={i} style={styles.result}>Le capteur { this.state.data[i].sensorId } a detecté un mouvement le { day } a { hour }</Text></View>
         )
     })
 
